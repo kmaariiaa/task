@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Треугольник</title>
+    <script>
+        function checkTriangle() {
+            var X = parseFloat(document.getElementById("inputX").value);
+            var Y = parseFloat(document.getElementById("inputY").value);
+            var Z = parseFloat(document.getElementById("inputZ").value);
+
+            var result = document.getElementById("result");
+
+            if (X + Y > Z && X + Z > Y && Y + Z > X) {
+                result.innerHTML = "Треугольник существует";
+
+                if (X * X + Y * Y === Z * Z || X * X + Z * Z === Y * Y || Y * Y + Z * Z === X * X) {
+                    result.innerHTML += " и является прямоугольным";
+                } else {
+                    result.innerHTML += " и не является прямоугольным";
+                }
+            } else {
+                result.innerHTML = "Треугольник не существует";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Треугольник</h1>
+    <label for="inputX">X:</label>
+    <input type="number" id="inputX"><br><br>
+    <label for="inputY">Y:</label>
+    <input type="number" id="inputY"><br><br>
+    <label for="inputZ">Z:</label>
+    <input type="number" id="inputZ"><br><br>
+    <button onclick="checkTriangle()">Проверить треугольник</button><br><br>
+    <div id="result"></div>
+
+    <script>
+
+        window.onload = function() {
+            var button = document.querySelector("button");
+            button.addEventListener("click", checkTriangle);
+        };
+    </script>
+</body>
+</html>
